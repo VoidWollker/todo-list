@@ -1,5 +1,6 @@
 import React from "react"
 import TodoItem from '../TodoItem/TodoItem'
+import './TodoList.scss'
 
 export default function TodoList({todos}){
     return(
@@ -9,9 +10,6 @@ export default function TodoList({todos}){
                 console.log(e);
                 return <TodoItem todo={e}/>
             })}
-            {/* {todos.array.forEach(element => {
-              return <TodoItem todo={element}/>  
-            })} */}
         </div>
     )
 }

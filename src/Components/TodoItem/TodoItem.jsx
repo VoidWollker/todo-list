@@ -1,14 +1,16 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-
+import React from "react"
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import { red  } from '@mui/material/colors'
+import './TodoItem.scss'
+import { IconButton } from "@mui/material";
 
 export default function TodoItem({todo}){
-    console.log('enter Item');
     return(
         <div className="todoItem">
             <p>{todo}</p>
-            <FontAwesomeIcon icon={faCircleXmark}/>
+            <IconButton>
+                <HighlightOffIcon sx={{color: red[600]}}/>
+            </IconButton>
         </div>
     )
 }
