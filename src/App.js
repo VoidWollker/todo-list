@@ -1,3 +1,4 @@
+import TodoHeader from "./Components/TodoHeader/TodoHeader";
 import TodoList from "./Components/TodoList/TodoList";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
 
   return (
     <div className="App">
+      <TodoHeader/>
       <TodoList todos={todos}/>
     </div>
   );
