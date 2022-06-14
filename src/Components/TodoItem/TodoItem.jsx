@@ -1,15 +1,23 @@
 import React from "react"
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
-import { red  } from '@mui/material/colors'
+import {  blue, green, red  } from '@mui/material/colors'
 import './TodoItem.scss'
-import { IconButton } from "@mui/material";
+import { Checkbox, IconButton } from "@mui/material";
 
 export default function TodoItem({todo}){
     return(
         <div className="todoItem">
-            <p>{todo}</p>
+            <div className="todoItem-todoName">
+                <Checkbox sx={{
+                    color: blue[400],
+                    '&.Mui-checked':{
+                        color: green[500]
+                    }
+                }}/>
+                <p>{todo}</p>
+            </div>
             <IconButton>
-                <HighlightOffIcon sx={{color: red[600]}}/>
+                <HighlightOffIcon sx={{color: red[600],}}/>
             </IconButton>
         </div>
     )
