@@ -1,19 +1,22 @@
 import { TextField } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import './TodoHeader.scss'
 import {Context} from '../../context'
 
 export default function TodoHeader({}){
-    const dispatch = useContext(Context)
+    const dispatch = useContext(Context).dispatch
     const [todoTitle, setTodoTitle] = useState('');
+    
+    console.log(dispatch);
 
     const addTodo = event => {
         if (event.key === 'Enter') {
-          dispatch({
-            type: 'add',
-            payload: todoTitle
-          })
-          setTodoTitle('')
+            console.log('enter');
+            dispatch({
+                type: 'add',
+                payload: todoTitle
+            })
+            setTodoTitle('')
         }
       }
 
@@ -25,7 +28,7 @@ export default function TodoHeader({}){
                 placeholder="Enter new task"
                 value={todoTitle}
                 onChange={e => setTodoTitle(e.target.value)}
-                onKeyDown={addTodo}
+                onKeyDown={e => addTodo(e)}
             />
         </div>
     )

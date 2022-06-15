@@ -3,11 +3,13 @@ import TodoItem from '../TodoItem/TodoItem'
 import './TodoList.scss'
 
 export default function TodoList({todos}){
+    console.log(todos);
+
     return(
         <div className="todoList">
-            {todos.map(e => {
-                console.log(e);
-                return <TodoItem todo={e}/>
+            {todos.map(item => {
+                console.log(item);
+                return <TodoItem key={item.id} {...item}/>
             })}
         </div>
     )
