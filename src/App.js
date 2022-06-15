@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 
 import reducer from './reducer'
 import {Context} from './context'
@@ -6,13 +6,11 @@ import TodoList from "./Components/TodoList/TodoList";
 import TodoHeader from "./Components/TodoHeader/TodoHeader";
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todos')))
+  const [state, dispatch] = useReducer(reducer, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(state))
   }, [state])
-  
-  //todos = ['wake up', 'cook breakfast', 'walk the dog']
 
   return (
     <Context.Provider value={{
@@ -20,7 +18,7 @@ export default function App() {
     }}>
       <div className="App">
         <TodoHeader/>
-        <TodoList todos={todos}/>
+        <TodoList todos={state}/>
       </div>
     </Context.Provider>
   );

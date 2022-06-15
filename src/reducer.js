@@ -14,6 +14,7 @@ export default function(state, action){
                 if (todo.id === action.payload){
                     todo.completed = !todo.completed
                 }
+                return todo
             })
         case 'remove':
             return state.filter(todo => todo.id != action.payload)
